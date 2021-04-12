@@ -1,0 +1,6 @@
+name: local-aws
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Local AWS using localstack

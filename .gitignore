@@ -1,0 +1,7 @@
+*.pyc
+*.zip
+**/venv
+state/
+*.iml
+.idea/
+

@@ -1,0 +1,18 @@
+encryptionsalt: v1:C1XfoFyhoXM=:v1:UzIFrrS60WZreJij:7mVQU23Bj80vBtvyno+0AHhBbOHX3g==
+config:
+  aws:isLocal: "true"
+  aws:region: eu-west-1
+
+  docker:skipPush: "true"
+
+  kinesis:shardCount: "2"
+
+  kinesis:streamName: testStream
+
+  lambda:deployment:
+    type: 'file'
+    path: '../examples/simple_kinesis_lambda.zip'
+
+  kubernetes:context: docker-desktop
+  kubernetes:isLocal: "true"
+  kubernetes:namespace: local-stack
