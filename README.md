@@ -54,6 +54,8 @@ Follow this instructions https://www.pulumi.com/docs/get-started/install/
 Once you have Pulumi installed, run following script:
 
 ```shell
+export PULUMI_HOME=$(pwd)
+export PULUMI_CONFIG_PASSPHRASE=local
 ./scripts/pulumi-setup.sh
 ```
 
@@ -79,8 +81,6 @@ source ./venv/bin/activate
 3. Bring  pulumi stack up
 
 ```shell
-export PULUMI_HOME=$(pwd)
-export PULUMI_CONFIG_PASSPHRASE=local
 pulumi up
 ```
 
