@@ -16,4 +16,13 @@ else
   python3 -m venv venv
   . ./venv/bin/activate
   pip install -r requirements.txt
+  deactivate
+fi
+
+if [ -d ./state/.pulumi/stacks/local.json ]
+then
+  echo "STACK local already exists"
+else
+  . ./venv/bin/activate
+  pulumi stack init --stack local
 fi

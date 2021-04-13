@@ -44,7 +44,7 @@ docker-compose down
 You will need to create a AIM user `default_user`, you can do it using this command:
 
 ```shell
-aws --endpoint-url=http://localhost:4566 iam create-user --user-name default_user
+./script/iam-create-default-user.sh
 ```
 
 ## Pulumi
@@ -61,15 +61,56 @@ Once you have Pulumi installed, run following script:
 
 With `localstack` docker compose up and running
 
-1. Activate `venv`
+1. Prepare lambda archive
+
+Run this script:
+
+```shell
+./scripts/prepare-lambda.sh
+```
+
+2. Activate `venv`
 
 ```shell
 cd project
 source ./venv/bin/activate
 ```
 
-2. Bring  pulumi stack up
+3. Bring  pulumi stack up
 
 ```shell
+export PULUMI_HOME=$(pwd)
+export PULUMI_CONFIG_PASSPHRASE=local
 pulumi up
 ```
+
+4. Put records in Kinesis
+
+You can use this script to put data in kinesis
+
+```shell
+./script/kinesis-put-record.sh <data string>
+```
+
+for example:
+
+```shell
+./script/kinesis-put-record.sh "Hello World of Localstack"
+```
+
+5. Inspect content of the Dynamodb
+
+## Cleanup
+
+```shell
+pulumi destroy
+```
+
+You can use this script to see content of the DynamoDB
+
+```shell
+./script/kinesis-scan.sh 
+```
+
+You should see one record for each time you used `kinesis-put-record.sh`
+
