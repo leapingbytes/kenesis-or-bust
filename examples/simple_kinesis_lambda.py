@@ -10,8 +10,8 @@ def lambda_handler(event, context):
     #
     # Boto does not want to work without this :(
     #
-    os.environ["AWS_ACCESS_KEY_ID"] = "test"
-    os.environ["AWS_SECRET_ACCESS_KEY"] = "test"
+    os.environ[f"aws_ACCESS_KEY_ID"] = "test"
+    os.environ[f"aws_SECRET_ACCESS_KEY"] = "test"
 
     #
     # localstack lambda uses docker as a "executor", so
