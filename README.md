@@ -3,6 +3,7 @@
 **TOC**
 - [Prerequisites](#prerequisites)
 - [How To Run Pulumi](#how-to-run-pulumi)
+- [Hot to run CDK](#how-to-run-cdk)
 
 This repo demonstrates use of Pulumi & CDK with Localstack. 
 
